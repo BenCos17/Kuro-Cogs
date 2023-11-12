@@ -34,4 +34,4 @@ with open(Path(__file__).parent / "info.json") as fp:
 
 
 async def setup(bot: Red):
-    await bot.add_cog(CogCount(bot))
+    await bot.add_cog(Hack(bot))
