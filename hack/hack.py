@@ -22,7 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
-from asyncio import sleep
+import asyncio
 from random import randint
 
 import discord
@@ -41,6 +41,10 @@ class Hack(commands.Cog):
     __author__ = humanize_list(["Kuro"])
     __version__ = "0.0.3"
 
+    def cog_unload(self):
+        # Optional: Clean up resources when the cog is unloaded
+        pass
+
     def format_help_for_context(self, ctx: commands.Context):
         """Thanks Sinbad!"""
         pre_processed = super().format_help_for_context(ctx)
@@ -53,7 +57,7 @@ class Hack(commands.Cog):
     @commands.guild_only()
     @commands.cooldown(1, 25, commands.BucketType.channel)
     @commands.command(aliases=["heck"])
-    async def hack(self, ctx, member: discord.Member):
+    async def hack(self, ctx: commands.Context, member: discord.Member):
         """Hack someone!"""
 
         if member == ctx.author:
@@ -62,13 +66,13 @@ class Hack(commands.Cog):
 
         # Mass editing lol
         message = await ctx.send(f"{loading(0)} Hacking {member.name} now...")
-        await sleep(2)
+        await asyncio.sleep(2)
         try:
             await message.edit(content=f"{loading(1)} Finding Discord Login...")
-            await sleep(2)
+            await asyncio.sleep(2)
             await message.edit(content=f"{loading(2)} Bypassing 2FA...")
-            await sleep(3)
-            email, password = get_email_and_password(member)
+            await asyncio.sleep(3)
+            email, password = await asyncio.to_thread(get_email_and_password, member)
             await message.edit(
                 content=(
                     f"{loading(3)} Found login information:\n"
@@ -76,25 +80,25 @@ class Hack(commands.Cog):
                     f"**Password**: `{password}`"
                 )
             )
-            await sleep(4)
+            await asyncio.sleep(4)
             await message.edit(content=f"{loading(0)} Fetching user DMs...")
-            await sleep(1)
-            await message.edit(content=f"{loading(1)} **Last DM**: `{get_last_dm()}`")
-            await sleep(3)
+            await asyncio.sleep(1)
+            await message.edit(content=f"{loading(1)} **Last DM**: `{await asyncio.to_thread(get_last_dm)()}`")
+            await asyncio.sleep(3)
             await message.edit(content=f"{loading(2)} Injecting trojan virus into {member}...")
-            await sleep(2)
+            await asyncio.sleep(2)
             await message.edit(content=f"{loading(3)} Virus injected. Finding IP Address...")
-            await sleep(3)
+            await asyncio.sleep(3)
             # A valid IP address must be in the form of x.x.x.x, where x is a number from 0-255.
             ip_address = f"{randint(0, 255)}.{randint(0, 255)}.{randint(0, 255)}.{randint(0, 255)}"
             await message.edit(content=f"{loading(0)} **IP Address**: `{ip_address}`")
-            await sleep(2)
+            await asyncio.sleep(2)
             await message.edit(content=f"{loading(1)} Selling user data to the government...")
-            await sleep(2)
+            await asyncio.sleep(2)
             await message.edit(
                 content=f"{loading(2)} Reporting account to Discord for breaking ToS..."
             )
-            await sleep(1)
+            await asyncio.sleep(1)
             await message.edit(content=f"{commands.context.TICK} Finished hacking {member.name}.")
             await ctx.send("The *totally* real and dangerous hack is complete.")
         except discord.NotFound:
