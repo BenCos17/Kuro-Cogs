@@ -39,7 +39,7 @@ class Hack(commands.Cog):
         self.bot = bot
 
     __author__ = humanize_list(["Kuro"])
-    __version__ = "0.0.3"
+    __version__ = "0.0.4"
 
     def cog_unload(self):
         # Optional: Clean up resources when the cog is unloaded
