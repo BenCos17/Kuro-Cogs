@@ -39,7 +39,7 @@ class Hack(commands.Cog):
         self.bot = bot
 
     __author__ = humanize_list(["Kuro"])
-    __version__ = "0.0.4"
+    __version__ = "0.0.3"
 
     def cog_unload(self):
         # Optional: Clean up resources when the cog is unloaded
@@ -68,19 +68,7 @@ class Hack(commands.Cog):
         message = await ctx.send(f"{loading(0)} Hacking {member.name} now...")
         await asyncio.sleep(2)
         try:
-<<<<<<< HEAD
-            # Custom Embed for a more visually appealing output
-            embed = discord.Embed(title="Hacking in Progress", color=0x00ff00)
-            embed.set_author(name="Le Professional Hacker", icon_url=self.bot.user.avatar.url or self.bot.user.default_avatar.url)
-            embed.set_thumbnail(url=member.avatar_url)
-
-            # Initial Embed with the progress bar
-            embed.add_field(name="Progress", value=":green_square: :green_square: :green_square: :green_square: :green_square:")
-
-            await message.edit(embed=embed)
-=======
             await message.edit(content=f"{loading(1)} Finding Discord Login...")
->>>>>>> parent of d2b0b5b (Update hack.py)
             await asyncio.sleep(2)
             await message.edit(content=f"{loading(2)} Bypassing 2FA...")
             await asyncio.sleep(3)
@@ -112,15 +100,7 @@ class Hack(commands.Cog):
                 content=f"{loading(2)} Reporting account to Discord for breaking ToS..."
             )
             await asyncio.sleep(1)
-<<<<<<< HEAD
-
-            embed.set_field_at(0, name="Progress", value=":white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark:")
-            embed.set_footer(text=f"Finished hacking {member.name}.", icon_url="https://i.imgur.com/1SbrN2o.png")
-            await message.edit(embed=embed)
-
-=======
             await message.edit(content=f"{commands.context.TICK} Finished hacking {member.name}.")
->>>>>>> parent of d2b0b5b (Update hack.py)
             await ctx.send("The *totally* real and dangerous hack is complete.")
         except discord.NotFound:
             await ctx.send("Process terminated. The hack failed.")
