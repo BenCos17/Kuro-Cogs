@@ -202,7 +202,7 @@ class FakeMod(kuroutils.Cog):
                 embed.timestamp = datetime.datetime.now(datetime.timezone.utc)
                 await fake_modlog.send(embed=embed)
 
-    @commands.command(name="bam", aliases=["ben", "bon", "bean"])
+    @commands.command(name="bam", aliases=["bon", "bean"])
     async def fake_ban(self, ctx: commands.Context, user: discord.User, *, reason: str = None):
         """Fake ban a user."""
         if user == ctx.me:
