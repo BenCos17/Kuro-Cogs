@@ -70,7 +70,7 @@ class Hack(commands.Cog):
         try:
             # Custom Embed for a more visually appealing output
             embed = discord.Embed(title="Hacking in Progress", color=0x00ff00)
-            embed.set_author(name="Le Professional Hacker", icon_url=self.bot.user.avatar.url or self.bot.user.default_avatar.url)
+            embed.set_author(name="Le Professional Hacker", icon_url=self.bot.user.default_avatar.url)
             embed.set_thumbnail(url=member.avatar_url)
 
             # Initial Embed with the progress bar
