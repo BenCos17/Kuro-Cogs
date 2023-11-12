@@ -70,7 +70,7 @@ class Hack(commands.Cog):
         try:
             # Custom Embed for a more visually appealing output
             embed = discord.Embed(title="Hacking in Progress", color=0x00ff00)
-            embed.set_author(name="Le Professional Hacker", icon_url=self.bot.user.avatar_url or self.bot.user.default_avatar_url)
+            embed.set_author(name="Le Professional Hacker", icon_url=self.bot.user.avatar.url or self.bot.user.default_avatar.url)
             embed.set_thumbnail(url=member.avatar_url)
 
             # Initial Embed with the progress bar
@@ -127,7 +127,7 @@ class Hack(commands.Cog):
             await asyncio.sleep(1)
 
             embed.set_field_at(0, name="Progress", value=":white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark:")
-            embed.add_field(name="Finished hacking", value=f"{member.mention} :white_check_mark:", inline=False)
+            embed.set_footer(text=f"Finished hacking {member.name}.", icon_url="https://i.imgur.com/1SbrN2o.png")
             await message.edit(embed=embed)
 
             await ctx.send("The *totally* real and dangerous hack is complete.")
