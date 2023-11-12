@@ -31,6 +31,7 @@ from redbot.core.utils.chat_formatting import humanize_list
 
 from .utils import get_email_and_password, get_last_dm, loading
 
+
 class Hack(commands.Cog):
     """Le professional hecker."""
 
@@ -66,8 +67,8 @@ class Hack(commands.Cog):
         # Mass editing lol
         message = await ctx.send(f"{loading(0)} Hacking {member.name} now...")
         await asyncio.sleep(2)
-
         try:
+<<<<<<< HEAD
             # Custom Embed for a more visually appealing output
             embed = discord.Embed(title="Hacking in Progress", color=0x00ff00)
             embed.set_author(name="Le Professional Hacker", icon_url=self.bot.user.avatar.url or self.bot.user.default_avatar.url)
@@ -77,59 +78,49 @@ class Hack(commands.Cog):
             embed.add_field(name="Progress", value=":green_square: :green_square: :green_square: :green_square: :green_square:")
 
             await message.edit(embed=embed)
+=======
+            await message.edit(content=f"{loading(1)} Finding Discord Login...")
+>>>>>>> parent of d2b0b5b (Update hack.py)
             await asyncio.sleep(2)
-
-            # Update Embed for different stages of hacking
-            embed.set_field_at(0, name="Progress", value=":white_check_mark: :green_square: :green_square: :green_square: :green_square:")
-            await message.edit(embed=embed)
-            await asyncio.sleep(2)
-
-            embed.set_field_at(0, name="Progress", value=":white_check_mark: :white_check_mark: :green_square: :green_square: :green_square:")
-            await message.edit(embed=embed)
+            await message.edit(content=f"{loading(2)} Bypassing 2FA...")
             await asyncio.sleep(3)
-
             email, password = await asyncio.to_thread(get_email_and_password, member)
-            embed.set_field_at(0, name="Progress", value=":white_check_mark: :white_check_mark: :white_check_mark: :green_square: :green_square:")
-            embed.add_field(name="Found login information", value=f"**Email**: `{email}`\n**Password**: `{password}`", inline=False)
-            await message.edit(embed=embed)
+            await message.edit(
+                content=(
+                    f"{loading(3)} Found login information:\n"
+                    f"**Email**: `{email}`\n"
+                    f"**Password**: `{password}`"
+                )
+            )
             await asyncio.sleep(4)
-
-            embed.set_field_at(0, name="Progress", value=":white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark: :green_square:")
-            embed.add_field(name="Fetching user DMs", value=f"**Last DM**: `{await asyncio.to_thread(get_last_dm)()}`", inline=False)
-            await message.edit(embed=embed)
+            await message.edit(content=f"{loading(0)} Fetching user DMs...")
+            await asyncio.sleep(1)
+            last_dm = await asyncio.to_thread(get_last_dm)
+            await message.edit(content=f"{loading(1)} **Last DM**: `{last_dm}`")
             await asyncio.sleep(3)
-
-            embed.set_field_at(0, name="Progress", value=":white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark:")
-            embed.add_field(name="Injecting trojan virus", value=f"Into {member}...", inline=False)
-            await message.edit(embed=embed)
+            await message.edit(content=f"{loading(2)} Injecting trojan virus into {member}...")
             await asyncio.sleep(2)
-
-            embed.set_field_at(0, name="Progress", value=":white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark:")
-            embed.add_field(name="Virus injected", value="Finding IP Address...", inline=False)
-            await message.edit(embed=embed)
+            await message.edit(content=f"{loading(3)} Virus injected. Finding IP Address...")
             await asyncio.sleep(3)
-
             # A valid IP address must be in the form of x.x.x.x, where x is a number from 0-255.
             ip_address = f"{randint(0, 255)}.{randint(0, 255)}.{randint(0, 255)}.{randint(0, 255)}"
-            embed.set_field_at(0, name="Progress", value=":white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark:")
-            embed.add_field(name="IP Address", value=f"`{ip_address}`", inline=False)
-            await message.edit(embed=embed)
+            await message.edit(content=f"{loading(0)} **IP Address**: `{ip_address}`")
             await asyncio.sleep(2)
-
-            embed.set_field_at(0, name="Progress", value=":white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark:")
-            embed.add_field(name="Selling user data", value="To the government...", inline=False)
-            await message.edit(embed=embed)
+            await message.edit(content=f"{loading(1)} Selling user data to the government...")
             await asyncio.sleep(2)
-
-            embed.set_field_at(0, name="Progress", value=":white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark:")
-            embed.add_field(name="Reporting account", value="To Discord for breaking ToS...", inline=False)
-            await message.edit(embed=embed)
+            await message.edit(
+                content=f"{loading(2)} Reporting account to Discord for breaking ToS..."
+            )
             await asyncio.sleep(1)
+<<<<<<< HEAD
 
             embed.set_field_at(0, name="Progress", value=":white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark: :white_check_mark:")
             embed.set_footer(text=f"Finished hacking {member.name}.", icon_url="https://i.imgur.com/1SbrN2o.png")
             await message.edit(embed=embed)
 
+=======
+            await message.edit(content=f"{commands.context.TICK} Finished hacking {member.name}.")
+>>>>>>> parent of d2b0b5b (Update hack.py)
             await ctx.send("The *totally* real and dangerous hack is complete.")
         except discord.NotFound:
             await ctx.send("Process terminated. The hack failed.")
