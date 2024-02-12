@@ -334,5 +334,5 @@ class AvatarImgen(commands.Cog):
         """Show the latest changelog."""
         embed = discord.Embed(title="AvatarImgen Changelog", color=await ctx.embed_color())
         embed.set_thumbnail(url=self.bot.user.avatar.url)
-        embed.add_field(name="Version 0.1.2", value="Update to support the latest version of Red.", inline=False)
+        embed.add_field(name="Version 0.2.1", value="Updated to discord.py 2.0.", inline=False)
         await ctx.send(embed=embed)
