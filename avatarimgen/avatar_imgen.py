@@ -29,6 +29,7 @@ from typing import Literal, Optional
 
 import aiohttp
 import discord
+from discord import member
 from redbot.core import commands
 from redbot.core.utils.chat_formatting import humanize_list
 
