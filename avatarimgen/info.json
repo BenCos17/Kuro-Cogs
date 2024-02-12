@@ -1,6 +1,6 @@
 {
-    "author": ["Kuro"],
-    "description": "Make images from avatars using Pop Cat API!",
+    "author": ["Kuro, bencos18"],
+    "description": "Make images from avatars using Pop Cat API and some-random-api.com!",
     "disabled": false,
     "end_user_data_statement": "This cog does not store any end user data.",
     "hidden": false,
