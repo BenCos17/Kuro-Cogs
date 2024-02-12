@@ -29,7 +29,8 @@ from typing import Literal, Optional
 
 import aiohttp
 import discord
-from redbot.core import commands
+from discord.ext import commands
+from redbot.core import Config, commands, checks
 from redbot.core.utils.chat_formatting import humanize_list
 
 
@@ -41,7 +42,7 @@ class AvatarImgen(commands.Cog):
         self.session = aiohttp.ClientSession()
 
     __author__ = humanize_list(["Kuro"])
-    __version__ = "0.1.1"
+    __version__ = "0.1.2"
 
     def format_help_for_context(self, ctx: commands.Context):
         """Thanks Sinbad!"""
@@ -325,3 +326,13 @@ class AvatarImgen(commands.Cog):
             text="Powered by some-random-api.ml", icon_url="https://i.some-random-api.ml/logo.png"
         )
         await ctx.send(embed=embed, file=file)
+
+    @commands.bot_has_permissions(attach_files=True)
+    @commands.command()
+    @commands.cooldown(1, 5, commands.BucketType.user)
+    async def changelog(self, ctx):
+        """Show the latest changelog."""
+        embed = discord.Embed(title="AvatarImgen Changelog", color=await ctx.embed_color())
+        embed.set_thumbnail(url=self.bot.user.avatar_url)
+        embed.add_field(name="Version 0.1.2", value="Update to support the latest version of Red.", inline=False)
+        await ctx.send(embed=embed)
