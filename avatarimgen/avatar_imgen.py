@@ -62,7 +62,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command(aliases=["ads"])
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def ad(self, ctx, user: discord.User = None):
+    async def ad(self, ctx, user: Optional[discord.User] = None):
         """Make an advertisement!"""
 
         user = user or ctx.author
@@ -72,7 +72,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command()
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def clown(self, ctx, user: discord.User = None):
+    async def clown(self, ctx, user: Optional[discord.User] = None):
         """This person is a clown, Star."""
 
         user = user or ctx.author
@@ -82,7 +82,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command()
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def communist(self, ctx, user: discord.User = None):
+    async def communist(self, ctx, user: Optional[discord.User] = None):
         """Generate a communist comrade avatar!"""
 
         user = user or ctx.author
@@ -92,7 +92,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command()
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def drip(self, ctx, user: discord.User = None):
+    async def drip(self, ctx, user: Optional[discord.User] = None):
         """Pretend to wear a rich jacket!"""
 
         user = user or ctx.author
@@ -102,7 +102,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command()
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def gun(self, ctx, user: discord.User = None):
+    async def gun(self, ctx, user: Optional[discord.User] = None):
         """Add a gun overlay to your avatar!"""
 
         user = user or ctx.author
@@ -112,7 +112,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command()
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def hornylicense(self, ctx, user: discord.User = None):
+    async def hornylicense(self, ctx, user: Optional[discord.User] = None):
         """Assign someone a horny license!"""
 
         user = user or ctx.author
@@ -122,7 +122,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command()
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def jail(self, ctx, user: discord.User = None):
+    async def jail(self, ctx, user: Optional[discord.User] = None):
         """Send someone to jail!"""
 
         user = user or ctx.author
@@ -132,7 +132,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command(alias=["lolipolice"])
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def lolice(self, ctx, user: discord.User = None):
+    async def lolice(self, ctx, user: Optional[discord.User] = None):
         """Be a loli police and put lolicons to jail!"""
 
         user = user or ctx.author
@@ -142,7 +142,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command(alias=["passed"])
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def missionpassed(self, ctx, user: discord.User = None):
+    async def missionpassed(self, ctx, user: Optional[discord.User] = None):
         """Mission passed, respect +100."""
 
         user = user or ctx.author
@@ -152,7 +152,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command()
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def simpcard(self, ctx, user: discord.User = None):
+    async def simpcard(self, ctx, user: Optional[discord.User] = None):
         """Assign someone a simp card!"""
 
         user = user or ctx.author
@@ -162,7 +162,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command(aliases=["itssostupid"])
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def sostupid(self, ctx, user: Optional[discord.User], *, message: str):
+    async def sostupid(self, ctx, user: Optional[discord.User] = None, *, message: str):
         """Oh no, it's so stupid!"""
 
         user = user or ctx.author
@@ -185,7 +185,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command()
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def tweet(self, ctx, user: Optional[discord.User], *, message: str):
+    async def tweet(self, ctx, user: Optional[discord.User] = None, *, message: str):
         """Generate a fake Twitter tweet!"""
 
         user = user or ctx.author
@@ -213,7 +213,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command(aliases=["wall"])
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def uncover(self, ctx, user: discord.User = None):
+    async def uncover(self, ctx, user: Optional[discord.User] = None):
         """So this person was hiding behind the wall all the time?"""
 
         user = user or ctx.author
@@ -223,7 +223,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command()
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def wanted(self, ctx, user: discord.User = None):
+    async def wanted(self, ctx, user: Optional[discord.User] = None):
         """Make a wanted poster!"""
 
         user = user or ctx.author
@@ -233,7 +233,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command()
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def wasted(self, ctx, user: discord.User = None):
+    async def wasted(self, ctx, user: Optional[discord.User] = None):
         """Wasted."""
 
         user = user or ctx.author
@@ -243,9 +243,10 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command()
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def whowouldwin(self, ctx, user_1: discord.User, user_2: discord.User = None):
+    async def whowouldwin(self, ctx, user_1: Optional[discord.User], user_2: Optional[discord.User] = None):
         """Who would win?"""
 
+        user_1 = user_1 or ctx.author
         user_2 = user_2 or ctx.author
         if user_1 == user_2:
             return await ctx.send("Of course you would tie against yourself.")
@@ -266,7 +267,7 @@ class AvatarImgen(commands.Cog):
     @commands.bot_has_permissions(attach_files=True)
     @commands.command(aliases=["youtubecomment"])
     @commands.cooldown(1, 5, commands.BucketType.user)
-    async def ytcomment(self, ctx, user: Optional[discord.User], *, comment: str):
+    async def ytcomment(self, ctx, user: Optional[discord.User] = None, *, comment: str):
         """Generate a fake YouTube comment!"""
 
         user = user or ctx.author
