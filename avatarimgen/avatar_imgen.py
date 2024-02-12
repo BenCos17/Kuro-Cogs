@@ -66,7 +66,7 @@ class AvatarImgen(commands.Cog):
         """Make an advertisement!"""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         await self.send_embed(ctx, "popcat", "ad", avatar, "Advertisement", user.color)
 
     @commands.bot_has_permissions(attach_files=True)
@@ -76,7 +76,7 @@ class AvatarImgen(commands.Cog):
         """This person is a clown, Star."""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         await self.send_embed(ctx, "popcat", "clown", avatar, "Clown", user.color)
 
     @commands.bot_has_permissions(attach_files=True)
@@ -86,7 +86,7 @@ class AvatarImgen(commands.Cog):
         """Generate a communist comrade avatar!"""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         await self.send_embed(ctx, "sra", "comrade", avatar, "Communist", user.color)
 
     @commands.bot_has_permissions(attach_files=True)
@@ -96,7 +96,7 @@ class AvatarImgen(commands.Cog):
         """Pretend to wear a rich jacket!"""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         await self.send_embed(ctx, "popcat", "drip", avatar, "Drip", user.color)
 
     @commands.bot_has_permissions(attach_files=True)
@@ -106,7 +106,7 @@ class AvatarImgen(commands.Cog):
         """Add a gun overlay to your avatar!"""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         await self.send_embed(ctx, "popcat", "gun", avatar, "Gun", user.color)
 
     @commands.bot_has_permissions(attach_files=True)
@@ -116,7 +116,7 @@ class AvatarImgen(commands.Cog):
         """Assign someone a horny license!"""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         await self.send_embed(ctx, "sra", "horny", avatar, "You're Now Legally Horny", user.color)
 
     @commands.bot_has_permissions(attach_files=True)
@@ -126,7 +126,7 @@ class AvatarImgen(commands.Cog):
         """Send someone to jail!"""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         await self.send_embed(ctx, "sra", "jail", avatar, "Go to Jail", user.color)
 
     @commands.bot_has_permissions(attach_files=True)
@@ -136,7 +136,7 @@ class AvatarImgen(commands.Cog):
         """Be a loli police and put lolicons to jail!"""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         await self.send_embed(ctx, "sra", "lolice", avatar, "Lolice Chief", user.color)
 
     @commands.bot_has_permissions(attach_files=True)
@@ -146,7 +146,7 @@ class AvatarImgen(commands.Cog):
         """Mission passed, respect +100."""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         await self.send_embed(ctx, "sra", "passed", avatar, "Mission Passed", user.color)
 
     @commands.bot_has_permissions(attach_files=True)
@@ -156,7 +156,7 @@ class AvatarImgen(commands.Cog):
         """Assign someone a simp card!"""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         await self.send_embed(ctx, "sra", "simpcard", avatar, "You're Now A Simp", user.color)
 
     @commands.bot_has_permissions(attach_files=True)
@@ -166,7 +166,7 @@ class AvatarImgen(commands.Cog):
         """Oh no, it's so stupid!"""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         async with ctx.typing():
             async with self.session.get(
                 "https://some-random-api.ml/canvas/its-so-stupid",
@@ -189,7 +189,7 @@ class AvatarImgen(commands.Cog):
         """Generate a fake Twitter tweet!"""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         async with ctx.typing():
             params = {
                 "avatar": avatar,
@@ -217,7 +217,7 @@ class AvatarImgen(commands.Cog):
         """So this person was hiding behind the wall all the time?"""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         await self.send_embed(ctx, "popcat", "uncover", avatar, "Behind The Wall", user.color)
 
     @commands.bot_has_permissions(attach_files=True)
@@ -227,7 +227,7 @@ class AvatarImgen(commands.Cog):
         """Make a wanted poster!"""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         await self.send_embed(ctx, "popcat", "wanted", avatar, "WANTED", user.color)
 
     @commands.bot_has_permissions(attach_files=True)
@@ -237,7 +237,7 @@ class AvatarImgen(commands.Cog):
         """Wasted."""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         await self.send_embed(ctx, "sra", "wasted", avatar, "Wasted", user.color)
 
     @commands.bot_has_permissions(attach_files=True)
@@ -271,7 +271,7 @@ class AvatarImgen(commands.Cog):
         """Generate a fake YouTube comment!"""
 
         user = user or ctx.author
-        avatar = str(user.avatar_url_as(format="png"))
+        avatar = str(user.avatar_url)))
         async with ctx.typing():
             async with self.session.get(
                 "https://some-random-api.ml/canvas/youtube-comment",
