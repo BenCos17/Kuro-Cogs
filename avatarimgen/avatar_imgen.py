@@ -169,7 +169,7 @@ class AvatarImgen(commands.Cog):
         avatar = str(user.avatar_url_as(format="png"))
         async with ctx.typing():
             async with self.session.get(
-                "https://some-random-api.ml/canvas/its-so-stupid",
+                "https://some-random-api.com/canvas/its-so-stupid",
                 params={"avatar": avatar, "dog": message},
             ) as r:
                 if r.status != 200:
@@ -178,7 +178,7 @@ class AvatarImgen(commands.Cog):
         embed = discord.Embed(title="Oh No, It's So Stupid", color=user.color)
         embed.set_image(url="attachment://so-stupid.png")
         embed.set_footer(
-            text="Powered by some-random-api.ml", icon_url="https://i.some-random-api.ml/logo.png"
+            text="Powered by some-random-api.com", icon_url="https://i.some-random-api.com/logo.png"
         )
         await ctx.send(embed=embed, file=file)
 
@@ -198,7 +198,7 @@ class AvatarImgen(commands.Cog):
                 "username": user.name,
             }
             async with self.session.get(
-                "https://some-random-api.ml/canvas/tweet", params=params
+                "https://some-random-api.com/canvas/tweet", params=params
             ) as r:
                 if r.status != 200:
                     return
@@ -206,7 +206,7 @@ class AvatarImgen(commands.Cog):
         embed = discord.Embed(title="Tweet", color=user.color)
         embed.set_image(url="attachment://tweet.png")
         embed.set_footer(
-            text="Powered by some-random-api.ml", icon_url="https://i.some-random-api.ml/logo.png"
+            text="Powered by some-random-api.com", icon_url="https://i.some-random-api.com/logo.png"
         )
         await ctx.send(embed=embed, file=file)
 
@@ -273,7 +273,7 @@ class AvatarImgen(commands.Cog):
         avatar = str(user.avatar_url_as(format="png"))
         async with ctx.typing():
             async with self.session.get(
-                "https://some-random-api.ml/canvas/youtube-comment",
+                "https://some-random-api.com/canvas/youtube-comment",
                 params={"avatar": avatar, "comment": comment, "username": user.display_name},
             ) as r:
                 if r.status != 200:
@@ -282,7 +282,7 @@ class AvatarImgen(commands.Cog):
         embed = discord.Embed(title="YouTube Comment", color=user.color)
         embed.set_image(url="attachment://youtube-comment.png")
         embed.set_footer(
-            text="Powered by some-random-api.ml", icon_url="https://i.some-random-api.ml/logo.png"
+            text="Powered by some-random-api.com", icon_url="https://i.some-random-api.com/logo.png"
         )
         await ctx.send(embed=embed, file=file)
 
@@ -294,7 +294,7 @@ class AvatarImgen(commands.Cog):
             if which == "popcat":
                 link, params = f"https://api.popcat.xyz/{endpoint}", {"image": avatar}
             elif which == "sra":
-                link, params = f"https://some-random-api.ml/canvas/{endpoint}", {"avatar": avatar}
+                link, params = f"https://some-random-api.com/canvas/{endpoint}", {"avatar": avatar}
             async with self.session.get(link, params=params) as r:
                 if r.status != 200:
                     return
@@ -318,8 +318,8 @@ class AvatarImgen(commands.Cog):
             by = "api.popcat.xyz"
             icon_url = "https://c.tenor.com/BT8I5b35oMQAAAAC/oatmeal-meme.gif"
         elif which == "sra":
-            by = "some-random-api.ml"
-            icon_url = "https://i.some-random-api.ml/logo.png"
+            by = "some-random-api.com"
+            icon_url = "https://i.some-random-api.com/logo.png"
         embed = discord.Embed(title=title, color=color)
         embed.set_image(url=f"attachment://{endpoint}.png")
         embed.set_footer(text=f"Powered by {by}", icon_url=icon_url)
