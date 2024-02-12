@@ -22,6 +22,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """
 
+
 import json
 from pathlib import Path
 
@@ -31,5 +32,5 @@ with open(Path(__file__).parent / "info.json") as fp:
     __red_end_user_data_statement__ = json.load(fp)["end_user_data_statement"]
 
 
-def setup(bot):
-    bot.add_cog(AvatarImgen(bot))
+async def setup(bot):
+    await bot.add_cog(AvatarImgen(bot))
