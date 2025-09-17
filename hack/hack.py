@@ -35,8 +35,8 @@ from .utils import get_email_and_password, get_last_dm, loading
 class Hack(commands.Cog):
     """Le professional hecker."""
 
-    def __init__(self, bot):
-        self.bot = bot
+    __author__ = ["Kuro"]
+    __version__ = "0.0.2"
 
     __author__ = humanize_list(["Kuro"])
     __version__ = "0.0.3"

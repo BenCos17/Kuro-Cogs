@@ -5,6 +5,14 @@ PetPet
 ******
 
 =============
+Version 0.0.3
+=============
+
+2023-11-17
+
+- Allow to petpet attachments
+
+=============
 Version 0.0.2
 =============
 
@@ -18,4 +26,4 @@ Version 0.0.1
 
 2023-10-21
 
-- Initial release
+- Migrated Phen's PetPet cog

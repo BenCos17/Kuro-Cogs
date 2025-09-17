@@ -17,14 +17,10 @@ jobs:
       strategy:
         matrix:
           python_version:
-            - "3.8"
             - "3.9"
             - "3.10"
             - "3.11"
           include:
-            - tox_env: py38
-              python_version: "3.8"
-              friendly_name: Python 3.8
             - tox_env: py39
               python_version: "3.9"
               friendly_name: Python 3.9
@@ -35,13 +31,13 @@ jobs:
               python_version: "3.11"
               friendly_name: Python 3.11
         fail-fast: false
-      name: Tox - ${{ matrix.friendly_name }} - Tests
+      name: Tox - ${{ matrix.friendly_name }}
       steps:
-        - uses: actions/checkout@v4
+        - uses: actions/checkout@v5
           with:
             ref: ${{ env.ref }}
         - name: Set up Python
-          uses: actions/setup-python@v4
+          uses: actions/setup-python@v6
           with:
             python-version: ${{ matrix.python_version }}
         - name: Install Tox

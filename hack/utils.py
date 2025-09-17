@@ -35,21 +35,6 @@ def loading(step: int):
     return screen
 
 
-def remove_emoji(text: str):
-    compiled = compile(
-        (
-            "["
-            "\U0001F600-\U0001F64F"  # Emoticons
-            "\U0001F300-\U0001F5FF"  # Symbols & Pictographs
-            "\U0001F680-\U0001F6FF"  # Transport & Map Symbols
-            "\U0001F1E0-\U0001F1FF"  # Flags (iOS)
-            "]+"
-        ),
-        UNICODE,
-    )
-    return compiled.sub(r"", text)
-
-
 def remove_punctuations(text: str):
     letters = list(text)
     for letter in letters:
@@ -60,9 +45,22 @@ def remove_punctuations(text: str):
 
 
 def get_email_and_password(user: discord.Member):
-    name = remove_emoji(remove_punctuations(user.name.lower()))
-    name = name.replace(" ", "").replace("'", "").replace('"', "")
-    domain = choice(
+    name = emoji.replace_emoji(remove_punctuations(user.name), "")
+    name = name.replace(" ", "")
+    if name == "":
+        name = random.choice(
+            [
+                "bitchass",
+                "femaledog",
+                "freeporn",
+                "ilovesluts",
+                "ineedbitches",
+                "smexyuser69",
+                "takingashit",
+                "waiting4u",
+            ]
+        )
+    domain = random.choice(
         [
             "@aol.com",
             "@disposablemail.com",

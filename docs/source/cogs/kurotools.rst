@@ -7,11 +7,16 @@ KuroTools
 
 .. important::
     To use this cog, you will need to install and load it first.
-    See the :ref:`Getting Started<getting_started>` page.
+    See the :ref:`Installation<installation>` page.
 
 ========
 Commands
 ========
+
+.. warning::
+    Do not include the ``<`` and ``>`` when running a command.
+
+    ``<argument>`` only means that **the argument is required**.
 
 ---
 raw
@@ -25,21 +30,6 @@ raw
 
 .. tip::
     You can either reply to a message or provide a message ID/Link.
-
-----
-
-------------
-reloadmodule
-------------
-
-.. code-block:: yaml
-
-    Syntax: [p]reloadmodule <module>
-
-**Description:** Force reload a module from `sys.modules`.
-
-.. warning::
-    Please only use this command only if advised to or you know what you're doing.
 
 ----
 
@@ -79,28 +69,22 @@ kuroutils version
 
 ----
 
---------------
-wheeloffortune
---------------
+--------
+timediff
+--------
 
 .. code-block:: yaml
 
-    Syntax: [p]wheeloffortune <arguments>
+    Syntax: [p]timediff <id1> <id2>
 
-**Description:** Play a Wheel of Fortune game!
-
-.. note::
-    - You can provide either 2, 3, 4, or 6 arguments
-    - Split the arguments with |
+**Description:** Get the time difference between two Discord objects.
 
 ----
-
-^^^^^^^^^^^^^^^^^^^^
-wheeloffortune creds
-^^^^^^^^^^^^^^^^^^^^
+when
+----
 
 .. code-block:: yaml
 
-    Syntax : [p]wheeloffortune creds
+    Syntax: [p]when <id>
 
-**Description:** Shows instructions to set wheel of fortune API key.
+**Description:** Get when a Discord object was created.

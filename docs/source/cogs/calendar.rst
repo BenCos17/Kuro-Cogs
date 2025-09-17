@@ -1,9 +1,9 @@
-.. _typeracer:
+.. _calendar:
 
-*********
-TypeRacer
-*********
-**Race to see who can type the fastest!**
+********
+Calendar
+********
+**See the calendar on Discord!**
 
 .. important::
     To use this cog, you will need to install and load it first.
@@ -19,11 +19,14 @@ Commands
     ``[argument]`` only means that **the argument is optional**.
 
 --------
-typerace
+calendar
 --------
 
 .. code-block:: yaml
 
-    Syntax: [p]typerace [winners=1]
+    Syntax: [p]calendar [month] [year]
 
-**Description:** Start a typing race!
+**Description:** View the calendar!
+
+.. note::
+    If month and year isn't passed, it defaults to current month and year.
