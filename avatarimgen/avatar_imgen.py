@@ -62,18 +62,32 @@ class AvatarImgen(commands.Cog):
 
     async def generate_image(
         self, ctx, which: Literal["popcat", "sra"], endpoint: str, avatar: str
-    ) -> discord.File:
+    ) -> Optional[discord.File]:
         """Generate image and return a discord.File object."""
         async with ctx.typing():
             if which == "popcat":
                 link, params = f"https://api.popcat.xyz/{endpoint}", {"image": avatar}
             elif which == "sra":
-                link, params = f"https://some-random-api.com/canvas/{endpoint}", {"avatar": avatar}
+                # SRA organized their canvas endpoints into categories
+                if endpoint in ["comrade", "jail", "passed", "gay", "glass", "wasted"]:
+                    link = f"https://some-random-api.com/canvas/overlay/{endpoint}"
+                elif endpoint in ["simpcard", "horny", "lolice"]:
+                    link = f"https://some-random-api.com/canvas/misc/{endpoint}"
+                else:
+                    link = f"https://some-random-api.com/canvas/{endpoint}"
+                
+                params = {"avatar": avatar}
+
             async with self.session.get(link, params=params) as r:
                 if r.status != 200:
-                    return
-                file = BytesIO(await r.read())
+                    return None
+                data = await r.read()
+                file = BytesIO(data)
+        
         return discord.File(file, filename=f"{endpoint}.png")
+
+    async def send_embed(
+
 
     async def send_embed(
         self,
@@ -87,17 +101,15 @@ class AvatarImgen(commands.Cog):
         """Send an embed with the generated image."""
         file = await self.generate_image(ctx, which, endpoint, avatar)
         if not file:
-            return await ctx.send("Something went wrong with the API, try again later.")
-        if which == "popcat":
-            by = "api.popcat.xyz"
-            icon_url = "https://c.tenor.com/BT8I5b35oMQAAAAC/oatmeal-meme.gif"
-        elif which == "sra":
-            by = "some-random-api.com"
-            icon_url = "https://i.some-random-api.com/logo.png"
+            return await ctx.send("Something went wrong with the API. The service might be down or the image format is unsupported.")
+        
+        by = "api.popcat.xyz" if which == "popcat" else "some-random-api.com"
+        icon_url = "https://c.tenor.com/BT8I5b35oMQAAAAC/oatmeal-meme.gif" if which == "popcat" else "https://i.some-random-api.com/logo.png"
+        
         embed = discord.Embed(title=title, color=color)
         embed.set_image(url=f"attachment://{endpoint}.png")
         embed.set_footer(text=f"Powered by {by}", icon_url=icon_url)
-        await ctx.send(embed=embed, file=file)
+        return await ctx.send(embed=embed, file=file)
 
     @commands.bot_has_permissions(attach_files=True)
     @commands.command(aliases=["ads"])
