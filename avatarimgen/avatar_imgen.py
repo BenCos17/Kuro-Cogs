@@ -86,7 +86,6 @@ class AvatarImgen(commands.Cog):
         
         return discord.File(file, filename=f"{endpoint}.png")
 
-    async def send_embed(
 
 
     async def send_embed(
